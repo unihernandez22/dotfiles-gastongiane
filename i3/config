@@ -1,0 +1,183 @@
+#     _ _____ ______            _____      
+#    (_)__  // ____/___  ____  / __(_)___ _
+#   / / /_ </ /   / __ \/ __ \/ /_/ / __ `/
+#  / /___/ / /___/ /_/ / / / / __/ / /_/ / 
+# /_//____/\____/\____/_/ /_/_/ /_/\__, /  
+#                                 /____/  
+
+# Official website
+# https://i3wm.org/
+
+# My github
+#
+
+# -- Variables ----------------------------------------------------------------
+
+# Set the modifier key (Windows key)
+set $mod Mod4
+
+# Set the terminal emulator
+set $term alacritty                     
+
+# Set the font
+font pango:JetBrains Mono NF 10.5
+
+# -- Keybindings --------------------------------------------------------------
+
+# Launch terminal emulator
+bindsym $mod+Return exec $term        
+
+# Kill focused window
+bindsym $mod+Shift+c kill              
+
+# Start dmenu (A program launcher)
+bindsym $mod+p exec dmenu_run           
+
+# Change focus
+bindsym $mod+h focus left            
+bindsym $mod+j focus down             
+bindsym $mod+k focus up                
+bindsym $mod+l focus right              
+
+# Move focused window
+bindsym $mod+Shift+h move left      
+bindsym $mod+Shift+j move down       
+bindsym $mod+Shift+k move up          
+bindsym $mod+Shift+l move right        
+
+# Split orientation vertical / horizontal toggle
+bindsym $mod+s split toggle             
+
+# Fullscrenn toggle
+bindsym $mod+f fullscreen toggle        
+
+# Floating window toggle
+bindsym $mod+Shift+f floating toggle    
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle    
+
+# Focus parent container
+bindsym $mod+a focus parent             
+
+# Restart i3
+bindsym $mod+Shift+r restart            
+
+# Quit i3
+bindsym $mod+Shift+e exec "pkill i3"    
+
+# -- Two or more monitors -----------------------------------------------------
+
+# Move workspace to another screen
+bindsym $mod+shift+period move workspace to output right
+bindsym $mod+shift+comma move workspace to output left
+
+# -- Mouse --------------------------------------------------------------------
+
+# Drag floating windows 
+floating_modifier $mod
+
+# -- Workspaces ---------------------------------------------------------------
+
+# Names of the workspace "<Number>:<Name>"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# Switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+
+# -- Resize Windows -----------------------------------------------------------
+
+mode "resize" {
+        
+        # Resize focused window
+        bindsym h resize shrink width $px px or $px ppt
+        bindsym j resize grow height $px px or $px ppt
+        bindsym k resize shrink height $px px or $px ppt
+        bindsym l resize grow width $px px or $px ppt
+
+        # Exit resize mode
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Size in pixels to resize
+set $px 1
+
+# Enter resize mode
+bindsym $mod+r mode "resize"
+
+# -- Gaps & Borders -----------------------------------------------------------
+
+# Size in pixels for Gaps
+set $gap 10
+
+# Gaps 
+gaps inner $gap
+gaps outer $gap
+
+# Borders
+for_window [class=".*"] border pixel 2
+
+# -- Bar & Colors -------------------------------------------------------------
+
+bar {
+
+    # Status bar
+    status_command i3status
+
+    # Position of the bar
+    position top
+
+    # Height of the bar
+    height 25
+
+    # Separator items bar
+    separator_symbol " - "
+
+    # Where show the tray icons 
+    tray_output primary
+
+    # If the workspace has a name, do not show the number 
+    strip_workspace_numbers yes
+
+    # Colors of the bar 
+    colors {
+    background  #282828
+    statusline  #ebdbb2
+    separator   #a89984
+    
+    #<colorclass>       <border>    <background>   <text>
+    focused_workspace   #458588      #83a598         #ebdbb2
+    active_workspace    #458588      #5f676a         #ebdbb2
+    inactive_workspace  #928374      #928374         #ebdbb2
+    urgent_workspace    #cc241d      #cc241d         #ebdbb2
+    binding_mode        #cc241d      #cc241d         #ebdbb2
+    }
+}
