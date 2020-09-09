@@ -136,6 +136,7 @@ dir_node_exact_matches = {
     'Music'                            : '',
     'Pictures'                         : '',
     'Public'                           : '',
+    'Repos'                            : '',
     'Templates'                        : '',
     'Videos'                           : '',
 }

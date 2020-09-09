@@ -1,0 +1,73 @@
+#    _____      __    __       __
+#   / ___/_  __/ /_  / /______/ /
+#   \__ \| |/_/ __ \/ //_/ __  / 
+#  ___/ />  </ / / / ,< / /_/ /  
+# /____/_/|_/_/ /_/_/|_|\__,_/   
+                                       
+# Restart Sxhkd Daemon
+super + shift + r
+    pkill -USR1 -x sxhkd && i3-msg restart
+
+# Take Screenshots (Flameshot necessary)
+super + shift + s
+    flameshot screen -p ~/Pictures/Screenshots
+
+# Music Control (Playerctl necessary)
+XF86AudioPlay
+    playerctl play-pause && notify-send 'Player '
+XF86AudioNext
+    playerctl next && notify-send 'Player Next'
+XF86AudioPrev
+    playerctl previous && notify-send 'Player Previous'
+XF86AudioStop
+    playerctl stop && notify 'Player Stop'
+
+# Volumen Control (Pulseaudio necessary)
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +1000
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -1000
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Web Browser (Brave necessary)
+XF86HomePage
+    brave && notify-send 'Brave Lauch'
+
+# Calculator (Xcal necessary)
+XF86Calculator
+    xcalc
+
+# PowerMenu (Powermenu script necessary)
+super + shift + q
+    ~/Repos/dmenu-scripts/powermenu
+
+# Web Browser (Chromium & Firefox necessary)
+super + {b, shift + b}
+    {chromium, firefox}
+
+# Music player (Moc necessary)
+super + shift + m
+    alacritty -e mocp
+    
+# Sound mixer (Pulsemixer necessary)
+super + shift + p
+    alacritty -e pulsemixer
+
+# Vim (Alacritty & Vim necessary)
+super + shift + v
+    alacritty -e vim
+
+# Neovim (Alacritty & Neovim necessary)
+super + shift + n
+    alacritty -e nvim
+
+# Telegram (Telegram necessary)
+super + shift + t
+    telegram-desktop
+
+super + shift + d
+    ~/Repos/dmenu-scripts/dotf
+
+control + alt + t
+    ~/Repos/scripts/python/match-tinder.py && notify send 'Match Tinder Thrown Out'
