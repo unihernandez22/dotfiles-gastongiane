@@ -1,26 +1,29 @@
-#    _____      __    __       __
-#   / ___/_  __/ /_  / /______/ /
-#   \__ \| |/_/ __ \/ //_/ __  / 
-#  ___/ />  </ / / / ,< / /_/ /  
-# /____/_/|_/_/ /_/_/|_|\__,_/   
-                                       
+#    ____      __   __      __
+#   / __/_ __ / /  / /_____/ /
+#  _\ \ \ \ // _ \/  '_/ _  /
+# /___//_\_\/_//_/_/\_\\_,_/
+
+# Official GitHub: https://github.com/baskerville/sxhkd
+
+# My GitHub: https://github.com/GastonGiane/
+
 # Restart Sxhkd Daemon
 super + shift + r
     pkill -USR1 -x sxhkd && i3-msg restart
 
 # Take Screenshots (Flameshot necessary)
-super + shift + s
+control + alt + s
     flameshot screen -p ~/Pictures/Screenshots
 
 # Music Control (Playerctl necessary)
 XF86AudioPlay
-    playerctl play-pause && notify-send 'Player '
+    playerctl play-pause
 XF86AudioNext
-    playerctl next && notify-send 'Player Next'
+    playerctl next
 XF86AudioPrev
-    playerctl previous && notify-send 'Player Previous'
+    playerctl previous
 XF86AudioStop
-    playerctl stop && notify 'Player Stop'
+    playerctl stop
 
 # Volumen Control (Pulseaudio necessary)
 XF86AudioRaiseVolume
@@ -32,7 +35,7 @@ XF86AudioMute
 
 # Web Browser (Brave necessary)
 XF86HomePage
-    brave && notify-send 'Brave Lauch'
+    brave
 
 # Calculator (Xcal necessary)
 XF86Calculator
@@ -66,8 +69,6 @@ super + shift + n
 super + shift + t
     telegram-desktop
 
-super + shift + d
-    ~/Repos/dmenu-scripts/dotf
-
+# Match Tinder
 control + alt + t
     ~/Repos/scripts/python/match-tinder.py && notify send 'Match Tinder Thrown Out'
