@@ -1,11 +1,7 @@
-//      ____ _       ____  ___   ______            _____      
-//     / __ \ |     / /  |/  /  / ____/___  ____  / __(_)___ _
-//    / / / / | /| / / /|_/ /  / /   / __ \/ __ \/ /_/ / __  /
-//   / /_/ /| |/ |/ / /  / /  / /___/ /_/ / / / / __/ / /_/ / 
-//  /_____/ |__/|__/_/  /_/   \____/\____/_/ /_/_/ /_/\__, /  
-//                                                   /____/ 
-
-// -- Appaearance -----------------------------------------------
+//    ___
+//   / _ \_    ____ _
+//  / // / |/|/ /  ' \
+// /____/|__,__/_/_/_/
 
 static const unsigned int borderpx              = 2;   /* border pixel of windows */
 static const unsigned int gappx                 = 10;  /* gaps between windows */
@@ -41,6 +37,7 @@ static const Rule rules[] = {
 	{ "Nitrogen",   			NULL,       NULL,       0,                  1,           -1 },
 	{ "Firefox",  				NULL,       NULL,       2,  			    0,           -1 },
 	{ "Chromium",  				NULL,       NULL,       2,  			    0,           -1 },
+    { "Brave",                  NULL,       NULL,       2,                  0,           -1 },
 	{ "TelegramDesktop",        NULL,       NULL,       1 << 7,  			0,           -1 },
 	{ "obs",  					NULL,       NULL,       1 << 8,  			0,           -1 },
 };
@@ -84,8 +81,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
     { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
     { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_s,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
@@ -102,7 +99,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_plus,   setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_plus,   setgaps,        {.i = 0  } },
-	//{ MODKEY|ShiftMask,             XK_q,      spawn,		   SHCMD("powermenu") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
