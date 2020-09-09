@@ -1,9 +1,8 @@
-#     _ _____ ______            _____      
-#    (_)__  // ____/___  ____  / __(_)___ _
-#   / / /_ </ /   / __ \/ __ \/ /_/ / __ `/
-#  / /___/ / /___/ /_/ / / / / __/ / /_/ / 
-# /_//____/\____/\____/_/ /_/_/ /_/\__, /  
-#                                 /____/  
+#    ________ _____          ____
+#   /  _/_  // ___/__  ___  / _(_)__ _
+#  _/ /_/_ </ /__/ _ \/ _ \/ _/ / _ `/
+# /___/____/\___/\___/_//_/_//_/\_, /
+#                              /___/
 
 # Official website
 # https://i3wm.org/
@@ -64,7 +63,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+r restart            
 
 # Quit i3
-bindsym $mod+Shift+e exec "pkill i3"    
+bindsym $mod+Shift+q exec "pkill i3"    
 
 # -- Two or more monitors -----------------------------------------------------
 
@@ -143,7 +142,7 @@ gaps inner $gap
 gaps outer $gap
 
 # Borders
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 
 # -- Bar & Colors -------------------------------------------------------------
 
@@ -159,7 +158,7 @@ bar {
     height 25
 
     # Separator items bar
-    separator_symbol " - "
+    separator_symbol " ~ "
 
     # Where show the tray icons 
     tray_output primary
@@ -169,15 +168,15 @@ bar {
 
     # Colors of the bar 
     colors {
-    background  #282828
-    statusline  #ebdbb2
-    separator   #a89984
+    background  #282C34
+    statusline  #DCDFE4
+    separator   #61AFEF
     
     #<colorclass>       <border>    <background>   <text>
-    focused_workspace   #458588      #83a598         #ebdbb2
-    active_workspace    #458588      #5f676a         #ebdbb2
-    inactive_workspace  #928374      #928374         #ebdbb2
-    urgent_workspace    #cc241d      #cc241d         #ebdbb2
+    focused_workspace   #61AFEF      #61AFEF         #282C34
+    active_workspace    #61AFEF      #61AFEF         #282C34
+    inactive_workspace  #61AFEF      #282C34         #DCDFE4
+    urgent_workspace    #E06C75      #E06C75         #DCDFE4
     binding_mode        #cc241d      #cc241d         #ebdbb2
     }
 }
